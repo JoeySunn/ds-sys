@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品详情页</title>
+    <link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/fileinput.min.css">
+  <link href="css/kindeditor/default.css" rel="stylesheet" media="screen">
+  <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var v=util.getQueryParam('v');
+	var version=v?v:new Date().getTime();
+	util.loadCss("css/product.detial.css");
+  </script>
+</head> 
+<body>
+ <!-- 产品详情的页面 -->
+<div class="productDetial" id="productDetial" >
+	<form>
+     <div id="product_detial">
+		   <div class="product_detial">
+			 <div class="head"><h4>基本信息</h4></div>
+			 <div class="product_info">
+				<div >
+					<p class="product_info_left">合作类型</p>
+					<p class="edit">
+					   <label><input name="type" type="checkbox" value="1" >产品推广</label> 
+						<label><input name="type" type="checkbox" value="2" >产品定制</label> 
+					</p>
+					<p class="show" name="type"></p>
+				 </div>
+				 <div class="product_item edit " id="type_1" hidden>
+					<p class="product_info_left">产品类目</p>
+					<div class="select_box">
+					 <p class="product_scene"><span>场景分类：</span></p>
+					 <p id="cls_box">
+					  </p>
+					</div>
+					<div class="select_box">
+					 <p class="product_scene"><span>险种分类：</span></p>
+					 <p>
+					  <label><input name="ins_type" type="radio" value="1" >意外险</label> 
+					  <label><input name="ins_type" type="radio" value="2" >健康险</label> 
+					  <label><input name="ins_type" type="radio" value="3" >责任险</label> 
+					  <label><input name="ins_type" type="radio" value="4" >财产险</label>
+					  </p>
+					</div>
+				 </div>
+				 <div class="product_item edit" id="type_2" hidden>
+					<p class="product_info_left">行业场景</p>
+						<p id="scene_box">
+						</p>
+				 </div>
+				 
+				 <div class="product_item show " id="type_show_1" hidden>
+					<p class="product_info_left">产品类目</p>
+					<div class="select_box" name="cls" hidden>
+					 <p class="product_scene"><span>场景分类：</span></p>
+					 <p id="cls_box">
+					  
+					  </p>
+					</div>
+					<div class="select_box" name="ins" hidden>
+					 <p class="product_scene"><span>险种分类：</span></p>
+					 <p class="ins_box">
+						
+					  </p>
+					</div>
+				 </div>
+				 <div class="product_item show" id="type_show_2" hidden>
+					<p class="product_info_left">行业场景</p>
+						<p id="scene_box">
+						  
+						</p>
+				 </div>
+				
+				<div >
+					<p class="product_info_left">产品编号</p>
+					<p name="code"></p>
+				</div>
+				 <div >
+					<p class="product_info_left">产品名称</p>
+					<p name="name"></p>
+				 </div>
+				 <div>
+					<p class="product_info_left">副标题</p>
+					<p class="edit"><input type="text" name="title"  placeholder="请输入副标题"></p>
+					<p class="show" name="title"></p>
+				 </div>
+				  <div >
+					<p class="product_info_left">承保区域</p>
+					<p class="edit"><input type="text" name="insured_area"  placeholder="全国（不含港澳台）"></p>
+					<p class="show" name="insured_area"></p>
+				 </div>
+				  <div >
+					<p class="product_info_left">保险期限</p>
+					<p class="edit"><input type="text" name="ins_limit" placeholder="请输入保险期限"></p>
+					<p class="show" name="ins_limit"></p>
+				 </div>
+				<div >
+					<p class="product_info_left">投保人年龄</p>
+					<p class="edit">
+						<select class="start_age" name="app_age_start">
+						</select>
+						<select class="age_type" name="app_age_start_type">
+							<option selected="selected" value='1'>周岁</option>
+						</select>
+						-
+						<select class="end_age" name="app_age_end">
+						</select>
+						<select class="age_type" name="app_age_end_type">
+							<option selected="selected" value='1'>周岁</option>
+						</select>
+					</p>
+					
+					<p class="show" name="app_age"></p>
+				 </div>
+				 <div >
+					<p class="product_info_left">被保险人年龄</p>
+					<p class="edit">
+						<select class="start_age" name="insrnt_age_start">
+						</select>
+						<select class="age_type" name="insrnt_age_start_type">
+							<option value='3'>天</option>
+							<option selected="selected" value='1'>周岁</option>
+						</select>
+						-
+						<select class="end_age" name="insrnt_age_end">
+						</select>
+						<select class="age_type"  name="insrnt_age_end_type">
+							<option value='3'>天</option>
+							<option selected="selected" value='1'>周岁</option>
+						</select>
+					</p>
+					<p class="show" name="insrnt_age"></p>
+				 </div>
+				 <div >
+					<p class="product_info_left">产品主图</p>
+					<p class="edit">
+						<input class="file updataImg"  type="file" name="image_url" value="">
+					</p>
+					<input class="hide" name="image">
+					<label class="edit" style="width:auto;color:#7C7D84;line-height: 34px;margin-left: 10px;">建议尺寸：100*100px，单张大小不超过100K</label>
+				</div>
+				<div>
+					<p class="product_info_left"></p>
+					<p>
+						<img src="" name="image_url"/>
+					</p>
+					
+				</div>
+				<div>
+					<p class="product_info_left">合作方式</p>
+					<p class="edit">
+					  <label><input name="extens" type="checkbox" value="1" >二维码</label> 
+					  <label><input name="extens" type="checkbox" value="2" >链接</label> 
+					  <label><input name="extens" type="checkbox" value="3" >API接口</label> 
+					</p>
+					<p class="show" name="extens"></p>
+				 </div>
+				 <div >
+					<p class="product_info_left">产品类型</p>
+					<p class="edit">
+						<label><input name="butt_mode" type="radio" value="1" >平台对接</label> 
+						<label><input name="butt_mode" type="radio" value="2" >外链产品</label>
+					</p>
+					<p class="show" name="butt_mode"></p>
+				 </div>
+				<div class="link_box">
+					<p class="product_info_left"></p>
+					<p class="edit"><input type="text" name="link" placeholder="请输入外链产品链接"></p>
+					<p class="show" name="link"></p>
+				</div>
+			 </div>
+		   </div>
+		   <div class="product_detial">
+			 <div class="head"><h4>图文详情</h4></div>
+			 <div class="edit"><textarea name="desc" id="desc" class="kindEditor" style="width:100%;height:400px"></textarea></div>
+			 <div class="show" name="desc"></div>
+		   </div>
+		   <div class="product_detial">
+			
+			 <div class="text_center modal-footer">
+			   <label type="button" class="btn btn-default cancle_box" style="width:100px;" id="cancle_btn">取消</label>
+				 <label type="button" class="btn btn-primary button_box" style="margin-left:60px;" id="save_btn">先存着,下次继续</label>
+			   <label type="button" class="btn btn-primary button_box" style="margin-left:60px;width: auto;" id="confirm_btn">保存并确认配置完成</label>
+			 </div>
+		</div>
+     </div> 
+	</form>
+</div>
+</body>
+  <script type="text/javascript" src="js/product.detial.js?v=1.0.7?"></script>
+  <script type="text/javascript" src="js/lib/fileinput.min.js?"></script>
+  <script type="text/javascript" src="js/lib/fileinput_zh.js?"></script>
+  <script type="text/javascript" src="js/lib/kindeditor-all-min.js?"></script>
+  <script type="text/javascript" src="js/lib/kindeditor-zh-CN.js?"></script>
+</html>

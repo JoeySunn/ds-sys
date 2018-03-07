@@ -1,0 +1,252 @@
+/*
+	统一样式
+	背景：色值 fff
+	颜色值：黑色色值 2D2F3B   rgba:45 47 59 1
+			浅灰色色值  7C7D84 rgba:124 125 132 1
+			蓝色色值 5173FD
+			红色色值 FF4343
+
+	
+*/
+
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    min-width: 1024px;
+	min-height:600px;
+    overflow: auto;
+    color:#333;
+    background:#fff;
+}
+a{
+    text-decoration:none;
+	color:#4099BD
+}
+ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+.plt10{
+    padding-left: 10px;
+}
+
+/*清除浮动*/
+.clearfixed{
+　　zoom:1;
+}
+.clearfixed:after{
+　　content:'';
+　　display:block;
+　　height:0;
+　　font-size:0;
+　　clear:both;
+　　overflow:hidden;
+}
+
+
+[hidden], template {
+    display: none;
+}
+button.close{
+	z-index: 111;
+    position: relative;
+	right: 20px;
+}
+input.date[readonly]{
+	background-color: #fff;
+}
+/*
+    背景
+*/
+.bg_f{
+    background:#f9f9f9;
+}
+
+.bg_main{
+    background:#3683c5;
+}
+/*
+    辅助色
+*/
+/*隔断，白色模块加以区分*/
+.bg_gird{
+    background:#f2f6f9;
+}
+
+/*用于状态提示、提醒 */
+.bg_alert{
+    background:#fd3132;
+}
+/*用于表格边线颜色*/
+.bg_border{
+    background:#ccc;
+}
+/*
+    字体颜色样式
+*/
+
+/*用于重要文字信息*/
+
+.color_F{
+    color:#FFF;
+}
+/*用于次级重要文字*/
+
+.color_S{
+    color:#4099BD;
+}
+
+/*用于不重要注释文字*/
+
+.color_5{
+    color:#5c5857;
+}
+.color_7{
+    color:#7C7D84;
+}
+
+/*文字多出部分省略号表示*/
+.ellipsis{
+    width:100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*文字多出部分强制换行*/
+.wrap{
+    word-wrap:break-word;   
+}
+
+/* ******
+    对齐方式
+****** */
+.text_center{
+    text-align:center;
+}
+.text_right{
+    text-align:right;
+}
+.text_left{
+    text-align:left;
+}
+
+/*
+    按钮样式
+*/
+.btn_bg{
+    background: #3684c6 !important;
+}
+/*按钮禁用*/
+.button[disabled] {
+    opacity: 1;
+    cursor: default !important;
+    pointer-events: none; 
+    background: #ccc !important;
+}
+
+/*左侧树状菜单*/
+.st_tree{width: 180px;}
+.powerTree{padding:10px;     width: 100%;display: table;}
+.powerTree input[type="checkbox"]{float: left;margin: 8px 4px 0;}
+/* 超链接 */
+.st_tree a{text-decoration:none; color:#4099BD; display: block; float: left;}
+.st_tree li span{float: right;}
+/* 鼠标经过的超链接 */
+
+/* 菜单 */
+.st_tree ul{padding-left:18px;width: 100%; }
+/* 菜单项 */
+.st_tree ul li{
+	font-size:14px;
+	color:#222;
+	height:40px;
+	line-height:40px;
+	cursor:pointer;
+	list-style:none;
+	background:url(imgs/st_node.png);
+	background-repeat:no-repeat;
+	padding: 0 0 3px 48px;
+    background-position: 18px center;
+    position: relative;
+	
+}
+.st_tree ul li .icon_up{
+	position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -8px;
+    height: 16px;
+	width: 16px;
+	display: none;
+}
+/* 子菜单 */
+.st_tree ul li ul{}
+/* 子菜单项 */
+.st_tree ul li ul li{}
+/* 子菜单的父节点 */
+.st_tree .folder{background:url(imgs/st_folder.png);background-repeat:no-repeat;padding:0 0 0 48px;background-position: 18px center;}
+.st_tree .folder .icon_up{
+	background:url(imgs/st_icon1.png) no-repeat;
+	background-position: left center;
+    display: block;
+}
+/* 展开的父节点 */
+.st_tree .open{background:url(imgs/st_folder_open.png);background-repeat:no-repeat;padding:0 0 0 48px;background-position: 18px center;}
+.st_tree .folder.open .icon_up{
+	background:url(imgs/st_icon_open1.png) no-repeat;
+	background-position: left center;
+    display: block;
+}
+/* 权限配置中权限树样式修改 */
+.form-power{
+	overflow-y:auto;
+	height:500px;
+	overflow-x:hidden;
+	padding-right:20px
+}
+.form-power .form-horizontal .form-group{
+	margin-right:0;
+}
+.form-power .radio label{
+	margin-left:10px;
+}
+/* select2 样式修改 */
+.select2-container{
+	width: 100% !important;
+}	
+
+
+/* bootstrap 样式修改 */
+.modal{
+	position: absolute;
+}
+.btn-primary {
+    background-color: #4099BD;
+    border-color: #4099BD;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #265E90;
+  border-color: #265E90;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #265E90;
+  border-color: #265E90;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #265E90;
+  border-color: #265E90;
+}
+.form-control{
+	font-size:13px;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <title>袋鼠保服·管理平台</title>
+	<link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/open.platform.css?v=1.1.8">
+  <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var version='1.1.8';//系统版本号
+	util.loadCss("css/main.style.css");
+  </script>
+ <!--[if lte IE 9]>
+   <script type="text/javascript" src="js/lib/html5shiv.js?"></script>
+<![endif]-->
+</head> 
+<body>
+  <div class="Platform_box clearfixed">
+  <!--导航区开始 -->
+    <div class="Platform_box_top">
+		<div class="logo">
+			<span><img src="images/logo.png"><label>管理平台</label></span>
+		</div>
+		<div id="Platform_nav">  
+	</div>
+	<div id="admin_btn" class="admin_btn"><span id="admin_name"></span></div>
+		<div class="admin_op_box">
+			<div id="pwd_edit" class="op_name">修改密码</div>
+			<div class="border"></div>
+			<div id="outSys" class="op_name">退出</div>
+		</div>
+    </div>
+	<!--导航区结束 -->
+	
+	
+	<!--主操作区域 开始-->
+	<div class="main_op">
+		<div class="left">
+		   <div class="nav_left clearfixed">
+				
+		   </div>
+		</div>
+		<div class="right">
+		  <div class="Robot_tab">
+				<div class="nav_box">
+					<div class="tab_top_left move_btn" hidden></div>
+					<div class="tab_top_box">
+						<ul class="nav nav-tabs tabs_top" >
+
+						</ul>
+					</div>
+					<div class="tab_top_right move_btn" hidden></div>
+				</div>
+			  <div class="tab-content modal-open">
+			  
+				  
+			</div>
+					   
+		  </div>
+		   
+
+		</div>
+	
+	</div>
+    <!--主操作区域 结束-->
+	
+	<!--欢迎页 开始 -->
+	<div class="welcome">
+		欢迎进入袋鼠保服管理平台
+	</div>
+	<!--欢迎页 结束 -->
+	<div class="alertBox">
+	</div>
+  </div>
+  <ul class="nav_menu client_menu">
+	<li data-type='1'>关闭当前</li>
+	<li data-type='2'>关闭非当前</li>
+	<li data-type='3'>关闭右边所有</li>
+	<li data-type='4'>关闭左边所有</li>
+  </ul>
+    <!-- 普通添加弹出框 -->
+    <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 11111;">
+              <div class="modal-dialog">
+                <div class="modal-content">
+					<button style="position: absolute;right: 10px;top: 3px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <div class="modal-header">
+                    <h4 class="modal-title text_center" id="editboxLabel">标题</h4>
+                  </div>
+                  <div class="modal-body">
+                     <div class="pop-box">
+                     </div>
+                  </div>
+                  <div class="modal-footer text_center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" style="width: 86px;" id="editbox_cancle_btn">取消</button>
+                    <button type="button" class="btn btn-primary " style="margin-left: 60px;width: 86px;" id="editbox_submit_btn">确认</button>
+                  </div>
+                </div>
+              </div>
+    </div>
+  	<!-- echarts -->
+  <script type="text/javascript">
+	util.loadScript("js/config.js");
+	util.loadScript("js/open.platform.js");
+  </script>
+  <script type="text/javascript" src="js/lib/echarts.common.min.js?" async="async"></script>
+  
+  <script type="text/javascript" src="js/lib/bootstrap-datetimepicker.js?"></script>
+  <script type="text/javascript" src="js/lib/bootstrap-datetimepicker.zh-CN.js?" charset="UTF-8" async="async"></script>
+  <script type="text/javascript" src="js/lib/select2.min.js?" charset="UTF-8" ></script>
+  <script type="text/javascript" src="js/lib/select2-zh-CN.js?" charset="UTF-8" async="async"></script>
+  <script type="text/javascript" src="js/lib/colResizable-1.6.js?" charset="UTF-8" async="async"></script>
+   <!-- 左侧导航树js -->
+  <script type="text/javascript" src="js/lib/SimpleTree.js?"></script>
+    <link href="css/lib/bootstrap-datetimepicker.css" rel="stylesheet">
+  <link href="css/lib/select2.min.css" rel="stylesheet" >
+
+</body>
+</html>

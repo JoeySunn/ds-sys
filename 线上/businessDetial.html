@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>商户详情页</title>
+  
+  <link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+   <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/fileinput.min.css">
+  <link href="css/lib/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
+  <!-- bootstrap的js -->
+  <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var v=util.getQueryParam('v');
+	var version=v?v:new Date().getTime();
+	util.loadCss("css/business.detial.css");
+  </script>
+</head>  
+<body>
+ <!-- 商户详情的页面 -->
+<div class="businessDetial" id="businessDetial" >
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#store_detial" data-toggle="tab">商户详情</a></li>
+			<li><a href="#product_detial" data-toggle="tab">产品推广</a></li>
+			<li><a href="#product_made" data-toggle="tab">产品定制</a></li>
+		</ul>
+		<div class="tab-content">
+		<div class="tab-pane active" id="store_detial">
+		    <div class="store_detial">
+			    <div class="head"><h4>管理员信息</h4><a class="edit">修改</a></div>
+				<form class="postData" name='admin'>
+					<div class="info">
+					<div >
+						<p class="info_left">姓名</p>
+						<p class="info_data" name="admin_name"></p>
+						<input class="info_data" hidden type="text" name="admin_name" value=""> 
+					</div>
+					 <div >
+						<p class="info_left">联系电话</p>
+						<p class="info_data" name="admin_mobile"></p>
+						<input class="info_data" hidden type="text" name="admin_mobile" value=""> 
+					 </div>
+					 <div>
+						<p class="info_left">身份证份号码</p>
+						<p class="info_data" name="admin_ident_no"></p>
+						<input class="info_data" hidden type="text" name="admin_ident_no" value=""> 
+					 </div>
+					 <div class="imgbox">
+						<p class="info_left">手持身份证照</p>
+						<p class="info_data"><img name="admin_ident_img_url" src="" alt=""><span  class=" imgModal">预览</span></p>
+						<input  type="hidden" name="admin_ident_img" value="">
+						<p class="editBox" hidden><img name="admin_ident_img_url" src="" alt="">
+						<span><input class="file updataImg"  urlname="admin_ident_img" type="file" name="localUrl" value=""> </span></p>
+					 </div>
+					 <div class="imgbox">
+						<p class="info_left">代理人授权书</p>
+						<p class="info_data"><img name="agent_img_url" src="" alt=""><span  class="imgModal">预览</span></p> 
+						<input  type="hidden" name="agent_img" value="">
+						<p class="editBox" hidden><img name="agent_img_url" src="" alt=""><span ><input urlname="agent_img" class="file updataImg"  type="file" name="localUrl" value=""> </span></p>
+					 </div>
+				</div>
+				</form>
+			    
+				<div class="text_center modal-footer button_box" hidden>
+					  <button type="button" class="btn btn-default edit_cancle" data-dismiss="modal" style="width: 86px">取消</button>
+					  <button type="button" class="btn btn-primary edit_submit" style="margin-left: 60px;width: 86px;">提交</button>
+				</div>
+		   </div>
+		   <div class="store_detial">
+			 <div class="head"><h4>企业信息</h4><a class="edit">修改</a></div>
+			 <form class="postData">
+			 <div class="info" name="business">
+				 <div >
+					<p class="info_left">企业名称</p>
+					<p class="info_data" name="name"></p>
+					<input class="info_data" hidden type="text" name="name" value=""> 
+				 </div>
+				 <div >
+					<p class="info_left">公司地址</p>
+					<p class="info_data" name="addr"></p>
+					<input class="info_data" hidden type="text" name="addr" value=""> 
+				 </div>
+				 <div >
+					<p class="info_left" id="credit_type">社会统一信用代码</p>
+					<p class="info_data" name="credit_code"></p>
+					<input class="info_data" hidden type="text" name="credit_code" value=""> 
+				 </div>
+				 <div >
+					<p class="info_left">法定代表人</p>
+					<p class="info_data" name="legal_name"></p>
+					<input class="info_data" hidden type="text" name="legal_name" value=""> 
+				 </div>
+				 <div >
+					<p class="info_left">法人身份证号</p>
+					<p class="info_data" name="legal_ident_no"></p>
+					<input class="info_data" hidden type="text" name="legal_ident_no" value=""> 
+				 </div>
+				 <div class="imgbox">
+					<p class="info_left">营业执照</p>
+					<p class="info_data"><img src="" alt="" name="legal_ident_img_url"><span class="imgModal">预览</span></p>
+					<input  type="hidden" name="legal_ident_img" value="">
+					<p class="editBox" hidden> <img src="" alt="" name="legal_ident_img_url"> <span ><input urlname="legal_ident_img" class="file updataImg"  type="file" name="localUrl" value=""> </span></p>
+				 </div>
+			 </div>
+			 </form>
+			 <div class="text_center modal-footer button_box" hidden>
+					  <button type="button" class="btn btn-default edit_cancle" data-dismiss="modal" style="width: 86px">取消</button>
+					  <button type="button" class="btn btn-primary edit_submit" style="margin-left: 60px;width: 86px;">提交</button>
+			</div>
+		   </div>
+		   <div class="store_detial">
+			 <div class="head"><h4>企业银行信息</h4><a class="edit">修改</a></div>
+			 <form class="postData">
+			 <div class="info">
+				 <div >
+					<p class="info_left">银行开户名</p>
+					<p class="info_data" name="account_name"></p>
+					<input class="info_data" hidden type="text" name="account_name" value=""> 
+				 </div>
+				 <div >
+					<p class="info_left">银行账户</p>
+					<p class="info_data" name="card_number"></p>
+					<input class="info_data" hidden type="text" name="card_number" value=""> 
+				 </div>
+				 <div >
+					<p class="info_left">开户行所在地</p>
+					<p class="info_data" name="bank_addr"></p>
+					<input class="info_data" hidden  type="text" name="bank_addr" value=""> 
+				 </div>
+				 <div >
+					<p class="info_left">开户银行</p>
+					<p class="info_data" name="bank_name"></p>
+					<input class="info_data" hidden type="text" name="bank_name" value=""> 
+				 </div>
+				 <div>
+					<p class="info_left">开户支行全称</p>
+					<p class="info_data" name="card_issuers"></p>
+					<input class="info_data" hidden type="text" name="card_issuers" value=""> 
+				 </div>
+			 </div>
+			 </form>
+			 <div class="text_center modal-footer button_box" hidden>
+					  <button type="button" class="btn btn-default edit_cancle" data-dismiss="modal" style="width: 86px">取消</button>
+					  <button type="button" class="btn btn-primary edit_submit" style="margin-left: 60px;width: 86px;">提交</button>
+			</div>
+		   </div>
+		    <div class="store_detial bill_info">
+			 <div class="head"><h4>商户信息</h4><a class="edit">修改</a></div>
+			  <form class="postData">
+			 <div class="info" style="padding:0">
+				 <div class="left">
+					<label class="info_left">营业期限</label>
+					<label class="info_data" name="term_start"></label>
+					<label class="info_data" name="term_end"></label>
+					<label class="editBox" hidden><input style="width:100px" class="info_date"  type="text" name="term_start" value="" data-date-format="yyyy-mm-dd" data-link-format="yyyy-mm-dd">-<input class="info_date" type="text" name="term_end" value="" style="width:100px" data-date-format="yyyy-mm-dd" data-link-format="yyyy-mm-dd"></label>
+				 </div>
+				 <div class="right ellipsis">
+					<label class="info_left">销售渠道</label>
+					<label class="info_data" name="partner_name"></label>
+					<label class="editBox" hidden>
+					<select name="partner_id"  style="height: 30px;">
+					</select>
+					</label>
+				 </div>
+				 <div>
+					<div style="padding:10px 20px;font-size:16px">开票信息：</div>
+					<div>
+						<div class="left ellipsis">
+							<label class="info_left">公司名称</label>
+							<label class="info_data" name="bill_name"></label>
+							<input class="info_data" hidden type="text" name="bill_name" value=""> 
+						 </div>
+						 <div class="right ellipsis">
+							<label class="info_left">纳税人识别号</label>
+							<label class="info_data" name="bill_no"></label>
+							<input class="info_data" hidden type="text" name="bill_no" value=""> 
+						 </div>
+						<div class="left ellipsis">
+							<label class="info_left">注册地址</label>
+							<label class="info_data" name="bill_addr"></label>
+							<input class="info_data" hidden type="text" name="bill_addr" value=""> 
+						 </div>
+						 <div class="right ellipsis">
+							<label class="info_left">联系电话</label>
+							<label class="info_data" name="bill_mobile"></label>
+							<input class="info_data" hidden type="text" name="bill_mobile" value=""> 
+						 </div>
+						 <div class="left ellipsis">
+							<label class="info_left">开票科目</label>
+							<label class="info_data"  name="bill_type"></label>
+							<input class="info_data" hidden type="text" name="bill_type" value=""> 
+						 </div>
+						 <div class="right ellipsis">
+							<label class="info_left">收件信息</label>
+							<label class="info_data" name="bill_rece"></label>
+							<input class="info_data" hidden type="text" name="bill_rece" value=""> 
+						 </div>
+					
+					</div>
+				 </div>
+			 </div>
+			 </form>
+			 <div class="text_center modal-footer button_box" >
+					  <button type="button" class="btn btn-default edit_cancle" style="width: 86px">取消</button>
+					  <button type="button" class="btn btn-primary edit_submit" style="margin-left: 60px;width: 86px;" hidden>提交</button>
+			</div>
+		   </div>
+		   <div class="store_detial examine" hidden>
+			 <div class="head"><h4>审核信息</h4></div>
+			 <div class="info">
+				 <div >
+					<p class="info_left">审核结果</p>
+					<p class="info_data" name="cert_status">待审核</p>
+				 </div>
+				 
+			 </div>
+		   </div>
+		   <div class="check_result" hidden>
+				 <form class="postData">
+					<div class="head"><h4>审核结果</h4></div>
+					<div>
+					  <label><input type="radio" name="type" value="1">通过</label> 
+					  <label><input type="radio" name="type" value="2">驳回</label> 
+					</div>
+					<div id="reject_reason" hidden>
+					  <span>驳回原因：</span>
+					  <label class="reason_box">
+						<label><input name="reason" type="checkbox" value="图片模糊不清" >图片模糊不清</label> 
+						<label><input name="reason" type="checkbox" value="信息与图片不符" >信息与图片不符</label> 
+						<label><input name="reason" type="checkbox" value="不具备网销保险资质" >不具备网销保险资质</label> 
+					  </label>
+					  <label><input name="reason" type="checkbox" value="other" >其它 <input name="memo" type="text"> </label>
+					  
+					</div>
+				</form>
+				<div class="text_center modal-footer">
+				  <button type="button" class="btn btn-default cancle_handle" examine='1' style="width: 86px">暂不处理</button>
+				  <button type="button" class="btn btn-primary edit_submit" examine='1' style="margin-left: 60px;width: 86px;">提交</button>
+				</div>
+		   </div>
+		   <div class="cancle_modal_box" hidden>
+				<div class="text_center modal-footer">
+				  <button type="button" class="btn btn-default cancle_modal" style="width: 86px">关闭</button>
+				</div>
+		   </div>
+		 </div>
+		 <div class="tab-pane" id="product_detial">
+			<table class="table table-bordered text_center">
+			 <thead>
+			   <tr class="bg_gird color_S">
+					<td style="width:10%;">合作编号</td>
+					<td style="width:10%;">提交时间</td>
+					<td style="width:10%;">产品编号</td>
+					<td style="width:10%;">产品名称</td>
+					<td style="width:10%;">推广费</td>
+					<td style="width:10%;">技术服务费</td>
+			   </tr>
+			 </thead> 
+			 <tbody>
+			 </tbody>
+			</table>
+		 </div>
+		 <div class="tab-pane" id="product_made">
+			<table class="table table-bordered text_center">
+			 <thead>
+			   <tr class="bg_gird color_S">
+					<td style="width:10%;">合作编号</td>
+					<td style="width:10%;">提交时间</td>
+					<td style="width:10%;">行业场景</td>
+					<td style="width:10%;">状态</td>
+					<td style="width:10%;">产品编号</td>
+					<td style="width:10%;">产品名称</td>
+					<td style="width:10%;">签约起期</td>
+					<td style="width:10%;">签约止期</td>
+					<td style="width:10%;">推广费</td>
+					<td style="width:10%;">技术服务费</td>
+			   </tr>
+			 </thead> 
+			 <tbody>
+			 </tbody>
+			</table>
+		</div>
+	   </div>   
+</div>
+ <div class="modal fade" id="showImg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <div class="modal-body">
+		 <div class="pop-box">
+			<img class="image" src=""/>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center">
+		<label class="btn btn-primary " data-dismiss="modal" aria-label="Close" style="width: 86px;" >确认</label>
+	  </div>
+	</div>
+  </div>
+    </div>
+</body>
+	<script type="text/javascript" src="js/business.detial.js?v=1.0.6"></script>
+  <script type="text/javascript" src="js/lib/fileinput.min.js?"></script>
+  <script type="text/javascript" src="js/lib/fileinput_zh.js?"></script>
+  
+  <script type="text/javascript" src="js/lib/bootstrap-datetimepicker.js?"></script>
+  <script type="text/javascript" src="js/lib/bootstrap-datetimepicker.zh-CN.js?" charset="UTF-8"></script>
+</html>

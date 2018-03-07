@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>订单详情页</title>
+    <link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <!-- bootstrap的js -->
+  <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var v=util.getQueryParam('v');
+	var version=v?v:new Date().getTime();
+	util.loadCss("css/main.style.css");
+	util.loadCss("css/open.platform.css");
+	util.loadScript("js/order.detial.js");
+  </script>
+</head>
+<body>
+ <!-- 订单详情的页面 -->
+<div class="orderDetial container" id="ordertDetial" >
+     <div id="order_detial">
+                <div class="order_detial">
+                 <div class="head"><h4>基本信息</h4></div>
+                 <div class="order_info">
+					<div class="rowbox">
+                     <div>
+                        <p class="order_info_left">经纪公司：</p>
+                        <p name="ins_name"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left">商户名称：</p>
+                        <p name="company_name"></p>
+                     </div>
+                   </div> 
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">订单编号：</p>
+                        <p name="order_no"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left">订单状态：</p>
+                        <p name="status"></p>
+                     </div>
+                   </div> 
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">产品编号：</p>
+                        <p name="product_code"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left">产品名称：</p>
+                        <p name="product_name"></p>
+                     </div>
+                   </div>
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">下单时间：</p>
+                        <p name="create_time"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left">推广方式：</p>
+                        <p name="exten"></p>
+                     </div>
+                   </div> 
+                 </div>
+               </div>
+               <div class="order_detial">
+                 <div class="head"><h4>保险内容</h4></div>
+                 <div class="order_info">
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">承保结果：</p>
+                        <p name="under_status"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left"></p>
+                        <p></p>
+                     </div>
+                   </div> 
+				   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">出单时间：</p>
+                        <p name="issue_time"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left">保单号：</p>
+                        <p name="policy_no"></p>
+                     </div>
+                   </div> 
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">保险起期：</p>
+                        <p name="bgn_tm"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left">保险止期：</p>
+                        <p name="end_tm"></p>
+                     </div>
+                   </div> 
+                   <div class="rowbox">
+                     <div style="width:800px">
+                        <p class="order_info_left">保障计划：</p>
+                        <p hidden>
+                         <table class="table table-bordered" name="detail">
+							<thead>
+								<tr>
+									<td>
+									保障项目
+									</td>
+									<td>
+									保险金额（元）
+									</td>
+									<td style="width:80px">
+									保费（元）
+									</td>
+								</tr>
+							</thead>
+							<tbody>
+							
+							</tbody>
+                         </table>
+                        </p>
+                       <p name="risk_name">
+					   </p>
+                     </div>
+                     
+                   </div>
+                 </div>
+               </div>
+               <div class="order_detial">
+                 <div class="head"><h4>投保人信息</h4></div>
+                 <div class="order_info">
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">姓名：</p>
+                        <p name="app_name"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left"></p>
+                        <p></p>
+                     </div>
+                   </div> 
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">证件类型：</p>
+                        <p name="app_ident_type"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left">证件号码：</p>
+                        <p name="app_ident_no"></p>
+                     </div>
+                   </div> 
+                   <div class="rowbox">
+                     <div>
+                        <p class="order_info_left">邮箱：</p>
+                        <p name="app_email"></p>
+                     </div>
+                     <div>
+                        <p class="order_info_left"></p>
+                        <p></p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+			<div id="insrnt_box">
+			
+			
+			</div>
+			<div>
+				<div class="text_center modal-footer">
+				  <button type="button" class="btn btn-default" style="width: 86px">关闭</button>
+				</div>
+		   </div>
+     </div>   
+</div>
+ 
+</body>
+</html>

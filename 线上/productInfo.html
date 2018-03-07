@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品详情页</title>
+    <link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var v=util.getQueryParam('v');
+	var version=v?v:new Date().getTime();
+	util.loadCss("css/product.detial.css");
+	util.loadScript("js/product.info.js");
+  </script>
+   <style>
+	label{
+		width: auto;
+	}
+	th{
+		text-align: center;
+	}
+	.table > tbody > tr > td{
+		word-break: normal;
+	}
+  </style>
+</head> 
+<body>
+ <!-- 产品详情的页面 -->
+<div class="productDetial" id="productDetial" >
+	<form>
+     <div id="product_detial">
+               <div class="product_detial">
+			 <div class="head"><h4>基本信息</h4></div>
+			 <div class="product_info">
+				<div >
+					<p class="product_info_left">合作类型</p>
+					<p class="edit">
+					   <label><input name="type" type="checkbox" value="1" >产品推广</label> 
+						<label><input name="type" type="checkbox" value="2" >产品定制</label> 
+					</p>
+					<p class="show" name="type"></p>
+				 </div>
+				 <div class="product_item edit " id="type_1" hidden>
+					<p class="product_info_left">产品类目</p>
+					<div class="select_box">
+					 <p class="product_scene"><span>场景分类：</span></p>
+					 <p id="cls_box">
+					  <label><input name="cls_id" type="radio" value="" >医疗健康</label> 
+					  <label><input name="cls_id" type="radio" value="" >户外运动</label> 
+					  <label><input name="cls_id" type="radio" value="" >O2O到家</label> 
+					  </p>
+					</div>
+					<div class="select_box">
+					 <p class="product_scene"><span>险种分类：</span></p>
+					 <p>
+					  <label><input name="ins_type" type="radio" value="1" >意外险</label> 
+					  <label><input name="ins_type" type="radio" value="2" >健康险</label> 
+					  <label><input name="ins_type" type="radio" value="3" >责任险</label> 
+					  </p>
+					</div>
+				 </div>
+				 <div class="product_item edit" id="type_2" hidden>
+					<p class="product_info_left">行业场景</p>
+						<p id="scene_box">
+						  <label><input name="scene_id" type="radio" value="" >医疗健康</label> 
+						  <label><input name="scene_id" type="radio" value="" >户外运动</label> 
+						  <label><input name="scene_id" type="radio" value="" >O2O到家</label> 
+						</p>
+				 </div>
+				 
+				 <div class="product_item show " id="type_show_1" hidden>
+					<p class="product_info_left">产品类目</p>
+					<div class="select_box" name="cls" hidden>
+					 <p class="product_scene"><span>场景分类：</span></p>
+					 <p id="cls_box">
+					 </p>
+					</div>
+					<div class="select_box" name="ins" hidden>
+					 <p class="product_scene"><span>险种分类：</span></p>
+					 <p class="ins_box">
+						
+					  </p>
+					</div>
+				 </div>
+				 <div class="product_item show" id="type_show_2" hidden>
+					<p class="product_info_left">行业场景</p>
+						<p id="scene_box">
+						  
+						</p>
+				 </div>
+				
+				<div >
+					<p class="product_info_left">产品编号</p>
+					<p name="code"></p>
+				</div>
+				 <div >
+					<p class="product_info_left">产品名称</p>
+					<p name="name"></p>
+				 </div>
+				 <div>
+					<p class="product_info_left">副标题</p>
+					<p class="edit"><input type="text" name="title"></p>
+					<p class="show" name="title"></p>
+				 </div>
+				  
+				  <div >
+					<p class="product_info_left">适合人群</p>
+					<p class="edit"><input type="text" name="fit_people"></p>
+					<p class="show" name="fit_people"></p>
+				 </div>
+				  <div >
+					<p class="product_info_left">承保区域</p>
+					<p class="edit"><input type="text" name="insured_area"></p>
+					<p class="show" name="insured_area"></p>
+				 </div>
+				  <div >
+					<p class="product_info_left">保险期限</p>
+					<p class="edit"><input type="text" name="ins_limit" placeholder=""></p>
+					<p class="show" name="ins_limit"></p>
+				 </div>
+				<div >
+					<p class="product_info_left">投保人年龄</p>
+					<p class="edit"><select class="start_age" name="app_age_start"></select>-<select class="end_age" name="app_age_end"></select>(周岁)</p>
+					<p class="show" name="app_age"></p>
+				 </div>
+				 <div >
+					<p class="product_info_left">被保险人年龄</p>
+					<p class="edit"><select class="start_age" name="insrnt_age_start"></select>-<select class="end_age" name="insrnt_age_end"></select>(周岁)</p>
+					<p class="show" name="insrnt_age"></p>
+				 </div>
+				 <div >
+					<p class="product_info_left">产品主图</p>
+					<p class="edit">
+						<input class="file updataImg"  type="file" name="image_url" value="">
+					</p>
+					<input class="hide" name="image">
+				</div>
+				<div >
+					<p class="product_info_left"></p>
+					<p>
+						<img src="" name="image_url"/>
+					</p>
+				</div>
+				<div>
+					<p class="product_info_left">合作方式</p>
+					<p class="edit">
+					  <label><input name="extens" type="checkbox" value="1" >二维码</label> 
+					  <label><input name="extens" type="checkbox" value="2" >链接</label> 
+					  <label><input name="extens" type="checkbox" value="3" >API接口</label> 
+					</p>
+					<p class="show" name="extens"></p>
+				 </div>
+				  <div >
+					<p class="product_info_left">产品类型</p>
+					<p class="edit">
+						<label><input name="butt_mode" type="radio" value="1" >平台对接</label> 
+						<label><input name="butt_mode" type="radio" value="2" >外链产品</label>
+					</p>
+					<p class="show" name="butt_mode"></p>
+				 </div>
+				<div class="">
+					<p class="product_info_left"></p>
+					<p class="edit"><input type="text" name="link" placeholder="请输入外链产品链接"></p>
+					<p class="show" name="link"></p>
+				</div>
+			 </div>
+		   </div>
+		   <div class="product_detial">
+			 <div class="head"><h4>图文详情</h4></div>
+			 <textarea name="desc" id="desc" class="kindEditor edit" style="width:100%;height:400px"></textarea>
+			 <div class="show" name="desc"></div>
+		   </div>
+               <div class="product_detial">
+                 <div class="head"><h4>保障方案</h4></div>
+				 <div class="product_info">
+					<div>
+						<p class="product_info_left">保费计算方式</p>
+						<p name="prem_calc"></p>
+					</div>
+				 </div>
+                 <table id="risk" class="table table-bordered text_center">
+					 <thead>
+					   <tr class="bg_gird color_S">
+							<th>方案代码</th>
+							<th>方案名称</th>
+							<th class="risk_attr" hidden>方案属性</th>
+							<th>保障项目</th>
+							<th>保费</th>
+					   </tr>
+					 </thead> 
+					 <tbody>
+					 </tbody>
+					</table>
+               </div>
+			   <div class="product_detial">
+                 <div class="head"><h4>条款说明</h4></div>
+                 <textarea name="explain" id="explain" class="kindEditor edit" style="width:100%;height:400px"></textarea>
+				   <div class="show" name="explain" ></div>
+               </div>
+               <div class="product_detial">
+                 
+                 <div class="text_center modal-footer">
+                   <label type="button" class="btn btn-default cancle_box" style="width:100px;" id="cancle_btn">关闭</label>
+				    <label type="button" class="btn btn-default" style="width:100px;" id="preview_btn">预览</label>
+                   <label type="button" class="btn btn-primary button_box" style="width:100px;" id="save_btn">确认上架</label>
+                 </div>
+			</div>
+     </div> 
+	</form>
+</div>
+ <div class="modal fade" id="itemSee" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" style="width: 765px;">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">保障项目</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+		 <div class="add_btn_box edit" style="text-align: right;"><button type="button" class="btn btn-primary add_kind_btn">+新增记录</button></div>
+			<table id="item" class="table table-bordered text_center">
+				<thead>
+					<tr class="bg_gird color_S">
+						<th>方案名称</th>
+						<th>险别代码</th>
+						<th>保障项目</th>
+						<th>保险金额</th>
+						<th style="width:260px">项目说明</th>
+					</tr>
+				</thead> 
+				<tbody>
+				</tbody>
+			</table>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default " data-dismiss="modal" style="width:86px;" id="cancle_btn">关闭</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div class="modal fade" id="premium" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">保费配置</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			<div class="add_btn_box edit" style="text-align: right;"><button type="button" class="btn btn-primary add_premium_btn">+新增记录</button></div>
+			<table id="premiumLists" class="table table-bordered text_center">
+				<thead>
+					<tr class="bg_gird color_S">
+						
+					</tr>
+				</thead> 
+				<tbody>
+				</tbody>
+			</table>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default " data-dismiss="modal" style="width:86px;" id="cancle_btn">关闭</button>
+	  </div>
+	</div>
+  </div>
+</div>
+<div class="modal fade" id="attr" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel"></h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			<form class="form-horizontal">
+				
+			</form>
+			<input type="hidden" name='risk_type' value=""/>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default " data-dismiss="modal" style="width:86px;" id="cancle_btn">关闭</button>
+	  </div>
+	</div>
+  </div>
+</div>
+</body>
+</html>

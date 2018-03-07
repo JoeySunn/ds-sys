@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品详情页</title>
+    <link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/fileinput.min.css">
+  <link href="css/kindeditor/default.css" rel="stylesheet" media="screen">
+  <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var v=util.getQueryParam('v');
+	var version=v?v:new Date().getTime();
+	util.loadCss("css/product.detial.css");
+	util.loadScript("js/product.config.js");
+  </script>
+  <style>
+	label{
+		width: auto;
+	}
+	th{
+		text-align: center;
+	}
+	.table > tbody > tr > td{
+		word-break: normal;
+	}
+  </style>
+  
+</head> 
+<body>
+ <!-- 产品详情的页面 -->
+<div class="productDetial" id="productDetial" >
+	<div id="product_detial">
+		<div class="product_detial">
+			<div class="head"><h4>保障方案</h4></div>
+			<div class="product_info">
+				<div>
+					<p class="product_info_left">保费计算方式</p>
+					<p name="prem_calc"></p>
+				</div>
+			</div>
+			<div class="edit" style="text-align: right;padding: 10px;" hidden>  <input  class="file updataImg"  type="file" name="localUrl" value=""></div>
+			<table id="risk" class="table table-bordered text_center">
+				<thead>
+					<tr class="bg_gird color_S">
+						<th>方案代码</th>
+						<th>方案名称</th>
+						<th class="risk_attr" hidden>方案属性</th>
+						<th>保障项目</th>
+						<th>保费</th>
+					</tr>
+				</thead> 
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<div class="text_center modal-footer">
+			<button type="button" class="btn btn-default  preview" id="attr_preview">方案属性预览</button>
+			<button type="button" class="btn btn-default preview"  id="item_preview">保障项目预览 </button>
+		    <button type="button" class="btn btn-default preview" id="premium_preview">保费配置预览</button>
+		    <label type="button" class="btn btn-default cancle_box" style="width:100px;" id="cancle_btn">关闭</label>
+		</div>
+	</div>
+</div> 
+
+<div class="modal fade" id="preview" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog"  style="width: 765px;">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">预览</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default cancle_box" data-dismiss="modal" style="width:86px;" id="cancle_btn">关闭</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="itemSee" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" style="width: 765px;">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">保障项目</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+		 <div class="add_btn_box edit" style="text-align: right;"><button type="button" class="btn btn-primary add_kind_btn">+新增记录</button></div>
+			<table id="item" class="table table-bordered text_center">
+				<thead>
+					<tr class="bg_gird color_S">
+						<th>方案名称</th>
+						<th>险别代码</th>
+						<th>保障项目</th>
+						<th>保险金额</th>
+						<th style="width:260px">项目说明</th>
+						<th style="width: 60px;" class="edit">操作</th>
+					</tr>
+				</thead> 
+				<tbody>
+				</tbody>
+			</table>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default cancle_box" data-dismiss="modal" style="width:86px;" id="cancle_btn">关闭</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div class="modal fade" id="attr" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" style="width: 765px;">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">方案属性配置</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			<form class="form-horizontal">
+				
+			</form>
+			<input type="hidden" name='risk_type' value=""/>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default cancle_box" data-dismiss="modal" style="width:86px;" id="cancle_btn">取消</button>
+		<button type="button" class="btn btn-primary submit_btn"  style="margin-left:60px;width:86px;" id="submit_btn">确认</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div class="modal fade" id="premium" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" style="width: 765px;">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">保费配置</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			<div class="add_btn_box edit" style="text-align: right;"><button type="button" class="btn btn-primary add_premium_btn">+新增记录</button></div>
+			<table id="premiumLists" class="table table-bordered text_center">
+				<thead>
+					<tr class="bg_gird color_S">
+						
+					</tr>
+				</thead> 
+				<tbody>
+				</tbody>
+			</table>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default cancle_btn" data-dismiss="modal" style="width:86px;" id="cancle_btn">关闭</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div class="modal fade" id="addPremium" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">新增记录</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			<div class="add_btn_box" style="text-align: right;"><button type="button" class="btn btn-primary add_premium_item_btn">+新增记录</button></div>
+			<div class="item_box">
+			</div>
+			
+			<input type="hidden" name='risk_type' value=""/>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default cancle_btn" data-dismiss="modal" style="width:86px;" id="cancle_btn">取消</button>
+		<button type="button" class="btn btn-primary submit_btn"  style="margin-left:60px;width:86px;" id="submit_btn">确认</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="addKind" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">新增记录</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			<div class="add_btn_box" style="text-align: right;"><button type="button" class="btn btn-primary add_item_btn">+新增记录</button></div>
+			<div class="item_box">
+				<div class="num_title"><label>保障项目</label></div>
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="kind_cde" class="col-sm-2 control-label">险别代码</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="kind_cde"  name="kind_cde" placeholder="请输入险别代码">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="kind_name" class="col-sm-2 control-label">保障项目</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="kind_name"  name="kind_name" placeholder="请输入保障项目">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="n_amt" class="col-sm-2 control-label">保障金额</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="n_amt"  name="n_amt" placeholder="请输入保障金额">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="kind_desc" class="col-sm-2 control-label">项目说明</label>
+						<div class="col-sm-10">
+							<textarea type="text" class="form-control" id="kind_desc"  name="kind_desc" placeholder="请输入项目说明" rows=5></textarea>
+						</div>
+					</div>
+					<input type="hidden" name='kind_id' value=""/>
+				</form>
+			</div>
+			<input type="hidden" name='risk_type' value=""/>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default cancle_btn" data-dismiss="modal" style="width:86px;" id="cancle_btn">取消</button>
+		<button type="button" class="btn btn-primary submit_btn"  style="margin-left:60px;width:86px;" id="submit_btn">确认</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div class="modal fade" id="eidtRisk" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog"  style="width: 765px;">
+	<div class="modal-content">
+		<button style="position: absolute;right: 10px;top: 3px;z-index: 1111;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<div class="modal-header">
+		<h4 class="modal-title text_center" id="editboxLabel">编辑</h4>
+	  </div>
+	  <div class="modal-body">
+		 <div class="pop-box ">
+			<form class="form-horizontal">
+				
+			</form>
+			<input type="hidden" name='risk_type' value=""/>
+		 </div>
+	  </div>
+	  <div class="modal-footer text_center button_box">
+		<button type="button" class="btn btn-default cancle_btn" data-dismiss="modal" style="width:86px;" id="cancle_btn">取消</button>
+		<button type="button" class="btn btn-primary submit_btn"  style="margin-left:60px;width:86px;" id="submit_btn">确认</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+</body>
+  <script type="text/javascript" src="js/lib/fileinput.min.js?"></script>
+  <script type="text/javascript" src="js/lib/fileinput_zh.js?"></script>
+  <script type="text/javascript" src="js/lib/kindeditor-all-min.js?"></script>
+  <script type="text/javascript" src="js/lib/kindeditor-zh-CN.js?"></script>
+</html>

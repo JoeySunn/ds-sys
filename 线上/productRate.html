@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品详情页</title>
+    <link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var v=util.getQueryParam('v');
+	var version=v?v:new Date().getTime();
+	util.loadCss("css/product.detial.css");
+	util.loadScript("js/product.rate.js");
+  </script>
+</head> 
+<body>
+ <!-- 产品详情的页面 -->
+<div class="productDetial" id="productDetial" >
+	<form>
+     <div id="product_detial">
+              
+               <div class="product_detial">
+                 <div class="head"><h4>结算配置</h4></div>
+                 <div class="product_info">
+					<div >
+                        <p class="product_info_left">推广费</p>
+                        <p class="edit">
+                          <input type="text" class="form-control" name="tgf_amt">
+						  <label style="color:#7C7D84;width: auto;">如需输入区间，请按举例格式：“10-20元”或“10%-20%”</label>
+                        </p>
+						<p class="show" name="tgf_amt"></p>
+                     </div>
+					 <div >
+                        <p class="product_info_left">产品价格</p>
+                        <p class="edit">
+                          <input type="text" class="form-control" name="price">
+						    <label style="color:#7C7D84;width: auto;">如需输入区间，请按举例格式：10-20元</label>
+                        </p>
+						<p class="show" name="price"></p>
+                     </div>
+					 <div >
+                        <p class="product_info_left">结算时间</p>
+                        <p class="edit" style="margin: 0;">
+                          <label><input name="settle_date_type" type="radio" value="1" >出单时间</label> 
+						  <label><input name="settle_date_type" type="radio" value="2" >保险起期</label> 
+						  <label><input class="form-control" style="width:50px;margin-left:30px;" name="settle_date_val" type="text" value="0" >天</label>
+						  <div class="edit" style="padding-left:180px;color:#7C7D84">
+							按出单时间或保险起期归属账期，默认结算时间为账期结束时间+0天
+						  </div>
+                        </p>
+						<p class="show" name="settle"></p>
+                     </div>
+					 <div class="border"></div>
+					 <div style="margin-bottom:20px">
+						<div>结算配置说明：</div>
+						<div>1.除通道费外，其余所有费用比例均以保费为基数（输入框填写各项费用占保费的比例）</div>
+						<div>2.通道费比例以经纪费为基数（输入框填写其占经纪费比例）</div>
+					 
+					 </div>
+					<div class="product_item" id="free_config">
+						<div >
+							<p class="product_info_left">保险公司</p>
+							<p class="edit">
+							  <select name="insurer_id" class="form-control" id="">
+								<option value="">二维码</option>
+								<option value="">链接</option>
+							  </select>
+							</p>
+							<p class="show" name="insurer_name"></p>
+						</div>
+						 <div>
+							<p class="product_info_left">保费去向</p>
+							<p class="edit">
+								<label><input name="prem_to" type="radio" value="1" checked>经纪公司收保费</label> 
+								<label><input name="prem_to" type="radio" value="2">商户收保费</label>
+							</p>
+							<p class="show" name="prem_to_text"></p>
+						</div>
+						<div>
+							<p class="product_info_left">保费结算模式</p>
+							<p class="edit">
+								<label><input name="xsf_prem_set_type" type="radio" value="1" checked>仅通过经纪公司结算</label> 
+								<label><input name="xsf_prem_set_type" type="radio" value="2">可通过多方结算（经纪公司、平台、商户）</label>
+							</p>
+							<p class="show" name="prem_set"></p>
+						</div>
+						<div class="free_type_box">
+							<div><p class="product_info_left name"><span>保险公司结算费率：</span></p></div>
+							<div id="xsf_tax_box">
+								<p class="product_info_left"><span>销售费用率</span></p>
+								<p class="edit">
+									<label class="tax_box" hidden>
+										<label><input name="xsf_tax_type" type="radio" value="1" checked>含税</label> 
+										<label><input name="xsf_tax_type" type="radio" value="2">不含税</label>
+									</label>
+									
+									<label><input name="xsf_type" class="free_type" type="radio" value="1" >固定</label> 
+									<label><input name="xsf_type" class="free_type" type="radio" value="2" checked>比例</label> 
+									<label>固定金额/比例</label> 
+									<label><input class="free_val form-control" name="xsf_val" type="text"><span class="unit">%</span></label>
+									<label class="free_tip"></label>	  
+								</p>
+								<p class="show" name="xsf">
+									<label class="title">固定金额/比例</label> 
+									<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+								</p>
+							</div>	
+							<div id="jjf_box">
+								<p class="product_info_left"><span>经纪费：</span></p>
+								<p class="edit">
+									<label class="tax_box" hidden>
+										<label><input name="jjf_xsf_tax_type" type="radio" value="1" checked>含税</label> 
+										<label><input name="jjf_xsf_tax_type" type="radio" value="2">不含税</label>
+									</label>
+									<label><input name="jjf_type" class="free_type" type="radio" value="1" >固定</label> 
+									<label><input name="jjf_type" class="free_type" type="radio" value="2" checked>比例</label> 
+									<label>固定金额/比例</label> 
+									<label><input class="free_val form-control" name="jjf_val" type="text" value="" ><span class="unit">%</span></label>
+									<label class="free_tip"></label>
+								</p>
+								<p class="show" name="jjf">
+									<label class="title">固定金额/比例</label> 
+									<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+								</p>
+							</div>	
+							<div id="fwf_insurer_box">
+								<p class="product_info_left"><span>技术服务费：</span></p>
+								<p class="edit">
+										<label><input name="fwf_insurer_type" class="free_type" type="radio" value="1" >固定</label> 
+										<label><input name="fwf_insurer_type" class="free_type" type="radio" value="2" checked>比例</label> 
+										<label>固定金额/比例</label> 
+										<label><input disabled class="free_val form-control fwf" name="fwf_insurer_val" type="text" value="" ><span class="unit">%</span></label>
+										<label class="free_tip">技术服务费比例由系统根据费用关系换算后自动填入</label>	  
+								</p>
+								<p class="show" name="fwf_insurer">
+									<label class="title">固定金额/比例</label> 
+									<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+								</p>
+							</div>
+							<div id="tgf_insurer_box">
+								<p class="product_info_left"><span>推广费：</span></p>
+								<p class="edit">
+									<label><input name="tgf_insurer_type" class="free_type" type="radio" value="1" >固定</label> 
+									<label><input name="tgf_insurer_type" class="free_type" type="radio" value="2" checked>比例</label> 
+									<label>固定金额/比例</label> 
+									<label><input class="free_val form-control" name="tgf_insurer_val" type="text" value="" ><span class="unit">%</span></label>
+									<label class="free_tip"></label>		  
+								</p>
+								<p class="show" name="tgf_insurer">
+									<label class="title">固定金额/比例</label> 
+									<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+								</p>
+							</div>
+					
+						</div>
+					 
+					 
+					 <div class="border"></div>
+					 
+						<div>
+							<p class="product_info_left">经纪公司</p>
+							<p class="edit">
+							  <select name="ins_id" class="form-control" id="">
+								<option value="">二维码</option>
+								<option value="">链接</option>
+							  </select>
+							</p>
+							<p class="show" name="ins_name"></p>
+						</div>
+						<div  class="free_type_box">
+							<div><p class="product_info_left name "><span>经纪公司结算费率：</span></p></div>
+							<div>
+								<p class="product_info_left"><span>通道费：</span></p>
+								<p class="edit">
+										<label><input name="tdf_type" class="free_type" type="radio" value="1" >固定</label> 
+										<label><input name="tdf_type" class="free_type" type="radio" value="2" checked>比例</label> 
+										<label>固定金额/比例</label> 
+										<label><input class="free_val form-control" name="tdf_val" type="text" value="" ><span class="unit">%</span></label>
+										<label class="free_tip"></label>		  
+								</p>
+								<p class="show" name="tdf">
+									<label class="title">固定金额/比例</label> 
+									<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+								</p>
+							</div>
+							<div>
+								<p class="product_info_left"><span>技术服务费：</span></p>
+								<p class="edit">
+										<label><input name="fwf_ins_type" class="free_type" type="radio" value="1" >固定</label> 
+										<label><input name="fwf_ins_type" class="free_type" type="radio" value="2" checked>比例</label> 
+										<label>固定金额/比例</label> 
+										<label><input disabled class="free_val form-control fwf" name="fwf_ins_val" type="text" value="" ><span class="unit">%</span></label>
+										<label class="free_tip">技术服务费比例由系统根据费用关系换算后自动填入</label>			  
+								</p>
+								<p class="show" name="fwf_ins">
+									<label class="title">固定金额/比例</label> 
+									<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+								</p>
+							</div>
+							<div>
+								<p class="product_info_left"><span>推广费：</span></p>
+								<p class="edit">
+										<label><input name="tgf_ins_type" class="free_type" type="radio" value="1" >固定</label> 
+										<label><input name="tgf_ins_type" class="free_type" type="radio" value="2" checked>比例</label> 
+										<label>固定金额/比例</label> 
+										<label><input class="free_val form-control" name="tgf_ins_val" type="text" value="" ><span class="unit">%</span></label>
+										<label class="free_tip"></label>		  
+								</p>
+								<p class="show" name="tgf_ins">
+									<label class="title">固定金额/比例</label> 
+									<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+								</p>
+							</div>
+						</div>
+						<div class="border"></div>
+						<div>
+							<div>
+								<p class="product_info_left">平台运营</p>
+								<p>杭州智驾科技有限公司</p>
+							</div>
+							<div  class="free_type_box"> 
+								<div>
+									<p class="product_info_left color_5 name"><span>平台结算费率：</span></p>
+								</div>
+								<div>
+									<p class="product_info_left"><span>推广费：</span></p>
+									<p class="edit">
+											<label><input name="tgf_plat_type" class="free_type" type="radio" value="1" >固定</label> 
+											<label><input name="tgf_plat_type" class="free_type" type="radio" value="2" checked>比例</label> 
+											<label>固定金额/比例</label> 
+											<label><input class="free_val form-control" name="tgf_plat_val" type="text" value="" ><span class="unit">%</span></label>
+											<label class="free_tip"></label>	  
+									</p>
+									<p class="show" name="tgf_plat">
+										<label class="title">固定金额/比例</label> 
+										<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+									</p>
+								</div>
+								
+								<div>
+									<p class="product_info_left"><span>市场拓展费：</span></p>
+									<p class="edit">
+								
+											<label><input name="qdf_type" class="free_type" type="radio" value="1" >固定</label> 
+											<label><input name="qdf_type" class="free_type" type="radio" value="2" checked>比例</label> 
+											<label>固定金额/比例</label> 
+											<label><input class="free_val form-control" name="qdf_val" type="text" value="" ><span class="unit">%</span></label>
+											<label class="free_tip"></label>	
+										  
+									</p>
+									<p class="show" name="qdf">
+										<label class="title">固定金额/比例</label> 
+										<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+									</p>
+								</div>	
+								<div>
+									<p class="product_info_left"><span>平台收益：</span></p>
+									<p class="edit">
+											<label><input name="plat_type" class="free_type" type="radio" value="1" >固定</label> 
+											<label><input name="plat_type" class="free_type" type="radio" value="2" checked>比例</label> 
+											<label>固定金额/比例</label> 
+											<label><input disabled class="free_val form-control fwf" name="plat_val" type="text" value="" ><span class="unit">%</span></label>
+											<label class="free_tip">平台收益比例由系统根据费用关系换算后自动填入</label>	  
+									</p>
+									<p class="show" name="plat">
+										<label class="title">固定金额/比例</label> 
+										<label><span class="taxValue"></span><span class="value"></span><span class="unit">%</span></label> 
+									</p>
+								</div>
+							</div>
+							
+						</div>
+					</div> 
+					
+                 </div>
+               </div>
+               <div class="product_detial">
+                 <div class="text_center modal-footer">
+					<label type="button" class="btn btn-default cancle_box" style="width:100px;" id="cancle_btn">取消</label>
+					<label type="button" class="btn btn-primary button_box" style="margin-left:60px;" id="save_btn">先存着,下次继续</label>
+					<label type="button" class="btn btn-primary button_box" style="margin-left:60px;width: auto;" id="confirm_btn">保存并确认配置完成</label>
+                 </div>
+			</div>
+     </div> 
+	</form>
+</div>
+</body>
+</html>

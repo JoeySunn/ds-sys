@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品详情页</title>
+    <link rel="hortcut icon" href="images/logo.ico"/>
+  <!--bootstrap内置css-->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lib/fileinput.min.css">
+  <link href="css/kindeditor/default.css" rel="stylesheet" media="screen">
+   <script type="text/javascript" src="js/Util.js?"></script>
+  <script type="text/javascript">
+	var v=util.getQueryParam('v');
+	var version=v?v:new Date().getTime();
+	util.loadCss("css/product.detial.css");
+	util.loadScript("js/product.clause.js");
+  </script>
+  <style>
+	label{
+		width: auto;
+	}
+	th{
+		text-align: center;
+	}
+	.table > tbody > tr > td{
+		word-break: normal;
+	}
+  </style>
+  
+</head> 
+<body>
+ <!-- 产品详情的页面 -->
+<div class="productDetial" id="productDetial" >
+	
+		<div id="product_detial">
+               <div class="product_detial">
+			 
+			   <form>
+			   <div class="product_detial">
+                 <div class="head"><h4>条款说明</h4></div>
+                 <textarea name="explain" id="explain" class="kindEditor edit" style="width:100%;height:500px"></textarea>
+				   <div class="show" name="explain" ></div>
+               </div>
+              
+               <div class="product_detial">
+                 
+                 <div class="text_center modal-footer">
+                   <label type="button" class="btn btn-default cancle_box" style="width:100px;" id="cancle_btn">取消</label>
+					 <label type="button" class="btn btn-primary button_box" style="margin-left:60px;" id="save_btn">先存着,下次继续</label>
+				   <label type="button" class="btn btn-primary button_box" style="margin-left:60px;" id="confirm_btn">保存并确认配置完成</label>
+                 </div>
+				</div>
+			</form>
+     </div> 
+	
+</div>
+
+</body>
+  <script type="text/javascript" src="js/lib/fileinput.min.js?"></script>
+  <script type="text/javascript" src="js/lib/fileinput_zh.js?"></script>
+  <script type="text/javascript" src="js/lib/kindeditor-all-min.js?"></script>
+  <script type="text/javascript" src="js/lib/kindeditor-zh-CN.js?"></script>
+</html>

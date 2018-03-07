@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>袋鼠保服·登录</title>
+	<link rel="hortcut icon" href="images/logo.ico" />
+	<!--bootstrap内置css-->
+	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.style.css">
+	<link rel="stylesheet" href="css/login.css?v=1.1.1">
+	<link rel="stylesheet" href="css/lib/unlock.css">
+	<!-- bootstrap的js -->
+	<script type="text/javascript" src="js/lib/jquery1.12.4.min.js?"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.min.js?"></script>
+	<script type="text/javascript" src="js/lib/unlock.js?"></script>
+
+</head>
+
+<body>
+
+	<div class="Platform_box">
+
+		<div class="Platform_login_box">
+			<div class="login">
+				<h3>企业管理后台登录页面</h3>
+				<div class="login_box">
+					<div class="input-group login_row">
+						<div class="input-group-addon">
+							<img src="images/user.png" alt="">
+						</div>
+						<input type="tel" class="form-control" id="username" placeholder="输入账号">
+					</div>
+					<div class="input-group login_row">
+						<div class="input-group-addon">
+							<img src="images/lock.png" alt="">
+						</div>
+						<input type="password" class="form-control" id="password" placeholder="输入密码">
+					</div>
+
+					<div class="login_row slider_box">
+						<div class="bar1 bar"></div>
+					</div>
+					<button type="button" class="btn" id="login">登录</button>
+				</div>
+
+				<div class="chgPwd" hidden>
+					<div class="input-group login_row">
+						<div class="input-group-addon">
+							<img src="images/lock.png" alt="">
+						</div>
+						<input type="password" class="form-control" id="newPwd" placeholder="请输入新密码">
+					</div>
+					<div class="input-group login_row">
+						<div class="input-group-addon">
+							<img src="images/lock.png" alt="">
+						</div>
+						<input type="password" class="form-control" id="againPwd" placeholder="请再次输入密码">
+					</div>
+					<button type="button" class="btn" id="chgPwd">修改</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	</div>
+
+</body>
+<script type="text/javascript">
+	var isIE8=false;
+  </script>
+<!--[if lte IE 8]>
+  <script type="text/javascript">
+		isIE8=true;
+		$('.slider_box').remove();
+  </script>
+<![endif]-->
+<script type="text/javascript" src="js/login.js?"></script>
+
+</html>
